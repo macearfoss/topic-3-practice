@@ -1,0 +1,114 @@
+from docx import Document
+from docx.shared import Inches
+
+# Create a new Word Document
+doc = Document()
+doc.add_heading('Custom Oncology Navigator Intake Form', 0)
+
+# Adding sections with headings and sample fields
+# 1. Basic Information Section
+doc.add_heading('1. Basic Information', level=1)
+table = doc.add_table(rows=5, cols=2)
+table.style = 'Table Grid'
+fields = ['Patient Name:', 'Medical Record Number (MRN):', 'Date of Birth (DOB):', 
+          'Primary Care Physician (PCP):', 'Referring Physician:']
+for idx, field in enumerate(fields):
+    table.cell(idx, 0).text = field
+    table.cell(idx, 1).text = '_________________________'
+
+# 2. Patient Demographics and Background
+doc.add_heading('2. Patient Demographics and Background', level=1)
+table = doc.add_table(rows=5, cols=2)
+table.style = 'Table Grid'
+fields = ['Marital Status:', 'Family Information (e.g., household members):', 
+          'Occupation:', 'Education (if applicable):', 'Contact Information:']
+for idx, field in enumerate(fields):
+    table.cell(idx, 0).text = field
+    table.cell(idx, 1).text = '_________________________'
+
+# 3. Chief Complaint and Diagnosis Information
+doc.add_heading('3. Chief Complaint and Diagnosis Information', level=1)
+table = doc.add_table(rows=6, cols=2)
+table.style = 'Table Grid'
+fields = ['Chief Complaint:', 'Type of Cancer Diagnosed:', 'Date of Diagnosis:', 
+          'Stage and Grade of Cancer:', 'Diagnostic Tests Completed:', 'Previous Cancer History:']
+for idx, field in enumerate(fields):
+    table.cell(idx, 0).text = field
+    table.cell(idx, 1).text = '_________________________'
+
+# 4. Psychosocial Assessment
+doc.add_heading('4. Psychosocial Assessment', level=1)
+table = doc.add_table(rows=6, cols=2)
+table.style = 'Table Grid'
+fields = ['Barriers to Care:', 'Family History of Cancer:', 'Smoking History:', 
+          'Substance Use History:', 'Access to Social Support:', 'Psychological History:']
+for idx, field in enumerate(fields):
+    table.cell(idx, 0).text = field
+    table.cell(idx, 1).text = '_________________________'
+
+# 5. Access to Care Assessment
+doc.add_heading('5. Access to Care Assessment', level=1)
+table = doc.add_table(rows=6, cols=2)
+table.style = 'Table Grid'
+fields = ['Difficulty Scheduling Appointments:', 'Primary Mode of Transportation:', 
+          'Transportation Challenges:', 'Housing/Lodging Needs:', 
+          'Financial Concerns Related to Treatment:']
+for idx, field in enumerate(fields):
+    table.cell(idx, 0).text = field
+    table.cell(idx, 1).text = '_________________________'
+
+# 6. Nutritional Assessment
+doc.add_heading('6. Nutritional Assessment', level=1)
+table = doc.add_table(rows=4, cols=2)
+table.style = 'Table Grid'
+fields = ['Recent Weight Loss:', 'Appetite Changes:', 'Malnutrition Screening Tool Score:', 
+          'Referral to Nutritionist:']
+for idx, field in enumerate(fields):
+    table.cell(idx, 0).text = field
+    table.cell(idx, 1).text = '_________________________'
+
+# 7. Learning and Communication Preferences
+doc.add_heading('7. Learning and Communication Preferences', level=1)
+table = doc.add_table(rows=3, cols=2)
+table.style = 'Table Grid'
+fields = ['Preferred Language for Medical Information:', 'Communication Barriers:', 
+          'Preferred Learning Style:']
+for idx, field in enumerate(fields):
+    table.cell(idx, 0).text = field
+    table.cell(idx, 1).text = '_________________________'
+
+# 8. Physical Barriers and Care Responsibilities
+doc.add_heading('8. Physical Barriers and Care Responsibilities', level=1)
+table = doc.add_table(rows=4, cols=2)
+table.style = 'Table Grid'
+fields = ['Challenges with Activities of Daily Living (ADLs):', 'Care Responsibilities:', 
+          'Mobility Issues:', 'Need for Assistive Devices:']
+for idx, field in enumerate(fields):
+    table.cell(idx, 0).text = field
+    table.cell(idx, 1).text = '_________________________'
+
+# 9. Navigation Plan and Follow-Up
+doc.add_heading('9. Navigation Plan and Follow-Up', level=1)
+table = doc.add_table(rows=4, cols=2)
+table.style = 'Table Grid'
+fields = ['Navigation Plan for Barriers Resolution:', 'Patient Education Plan:', 
+          'Referral Needs:', 'Follow-Up Contact Plan Based on Patient Acuity Score:']
+for idx, field in enumerate(fields):
+    table.cell(idx, 0).text = field
+    table.cell(idx, 1).text = '_________________________'
+
+# 10. Distress and Acuity Scores
+doc.add_heading('10. Distress and Acuity Scores', level=1)
+table = doc.add_table(rows=4, cols=2)
+table.style = 'Table Grid'
+fields = ['Distress Thermometer Score:', 'Number of Barriers Identified:', 
+          'Overall Patient Acuity Score:', 'Plan for Follow-Up Based on Acuity Level:']
+for idx, field in enumerate(fields):
+    table.cell(idx, 0).text = field
+    table.cell(idx, 1).text = '_________________________'
+
+# Save the document
+file_path = "/mnt/data/Custom_Oncology_Navigator_Intake_Form.docx"
+doc.save(file_path)
+
+file_path
